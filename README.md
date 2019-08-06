@@ -9,24 +9,34 @@ To run:
 0. Build the project with `mvn package`, this will generate an original-final-kafka-streams-ohlc-1.0-SN.jar with the streams app and all its dependencies.
 1. Create a stocks input topic:
 
-    `sh bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic trade --partitions 1 --replication-factor 1`
+```console
+sh bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic trade --partitions 1 --replication-factor 1
+```
 
 2. Next, run following command for generate same trades data and stop it with ctrl-c when you think there's enough data:
-`$ java -cp target/final-kafka-streams-ohlc-1.0-SN.jar ru.Graceas.examples.kafkaohlc.TradeGenProducer`
+```console
+$ java -cp target/final-kafka-streams-ohlc-1.0-SN.jar ru.Graceas.examples.kafkaohlc.TradeGenProducer
+```
 
 3. Run the streams app:
-`java -cp target/final-kafka-streams-ohlc-1.0-SN.jar ru.Graceas.examples.kafkaohlc.TradeStatsExample`
+```console
+java -cp target/final-kafka-streams-ohlc-1.0-SN.jar ru.Graceas.examples.kafkaohlc.TradeStatsExample
+```
 Streams apps typically run forever, but this one will just run for a minute and exit
 
 4. Check the results:
-`bin/kafka-console-consumer.sh --topic trade-stats-output --from-beginning --bootstrap-server localhost:9092 --property print.key=true`
+```console
+bin/kafka-console-consumer.sh --topic trade-stats-output --from-beginning --bootstrap-server localhost:9092 --property print.key=true
+```
 
 If you want to reset state and re-run the application execute the following commands:
 
-`sh bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic trade
+```console
+sh bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic trade
 sh bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic trade-stats-store
 sh bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic trade-stats-output
-sh bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic trade --partitions 1 --replication-factor 1`
+sh bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic trade --partitions 1 --replication-factor 1
+```
 
 
 Example output:
