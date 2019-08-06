@@ -23,10 +23,10 @@ Streams apps typically run forever, but this one will just run for a minute and 
 
 If you want to reset state and re-run the application execute the following commands:
 
-`sh bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic trade`
-`sh bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic trade-stats-store`
-`sh bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic trade-stats-output`
-`sh bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic trade --partitions 1 --replication-factor 1`
+`sh bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic trade
+sh bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic trade-stats-store
+sh bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic trade-stats-output
+sh bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic trade --partitions 1 --replication-factor 1`
 
 
 Example output:
