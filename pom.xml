@@ -9,7 +9,7 @@
     <version>1.0-SN</version>
 
     <properties>
-        <kafka.version>1.0.1</kafka.version>
+        <kafka.version>3.9.2</kafka.version>
         <confluent.version>3.1.1</confluent.version>
         <avro.version>1.7.7</avro.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
